@@ -1,5 +1,4 @@
 export const SpeedController = ({ min = 50, max = 500, step = 1, value, handleChange, isDisabled = false }) => {
-    console.log(isDisabled)
     return (
         <div className="flex gap-2 items-center justify-center">
             <span className="text-center text-gray-300">Slow</span>
@@ -11,7 +10,7 @@ export const SpeedController = ({ min = 50, max = 500, step = 1, value, handleCh
                 step={step}
                 value={value}
                 onChange={(e) => handleChange(e)}
-                className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-700"
+                className="w-full h-2 rounded-lg appearance-none cursor-none bg-gray-700"
             />
             <span className="text-center text-gray-300">Fast</span>
         </div>

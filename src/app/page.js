@@ -1,5 +1,6 @@
 'use client'
 
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 

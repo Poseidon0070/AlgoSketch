@@ -21,6 +21,7 @@ body {
   background-color: #0a0c0f;
   background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
   overflow: hidden;
+  cursor:none
 }
 
 @layer utilities {
@@ -35,3 +36,5 @@ body {
   box-shadow:  -6px -6px 12px #040404,
                6px 6px 12px #0c0c0c;
 }
+
+

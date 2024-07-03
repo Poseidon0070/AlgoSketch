@@ -14,7 +14,6 @@ const sortingVisualizer = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        console.log("animationSpeed", sorting.animationSpeed)
     }, [sorting.animationSpeed])
 
     useEffect(() => {
@@ -28,7 +27,7 @@ const sortingVisualizer = () => {
 
     return (
         <div>
-            <div className="flex flex-col justify-center items-center w-full mt-20 mb-16" id='content-container'>
+            <div className="flex flex-col justify-center items-center w-full mt-20 mb-14" id='content-container'>
                 <div className="w-full mx-auto flex justify-center items-end">
                     {sorting.array.map((value, index) => (
                         <div
@@ -39,13 +38,15 @@ const sortingVisualizer = () => {
                     ))}
                 </div>
             </div>
-            <div className='h-[50px] flex justify-center items-center gap-20'>
-                <SpeedController 
-                value={sorting.animationSpeed}
-                isDisabled={sorting.isSorting} 
-                handleChange={(e) => dispatch(sortingAction.setAnimationSpeed(e.target.value))}   
-                />
-                <AlgorithmSelector options={algorithmOptions} onChange={(e) => dispatch(sortingAction.setAlgorithm(e.target.value))}/>
+            <div className='absolute bottom-12 flex justify-center items-center w-full'>
+                <div className='flex justify-center items-center gap-20'>
+                    <SpeedController 
+                    value={sorting.animationSpeed}
+                    isDisabled={sorting.isSorting} 
+                    handleChange={(e) => dispatch(sortingAction.setAnimationSpeed(e.target.value))}   
+                    />
+                    <AlgorithmSelector options={algorithmOptions} algorithm={sorting.selectedAlgorithm} isDisabled={sorting.isSorting} onChange={(value) => dispatch(sortingAction.setAlgorithm(value))}/>
+                </div>
             </div>
         </div>
     )
