@@ -18,16 +18,20 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #0a0c0f;
+  background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+  overflow: hidden;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.main-header {
+  border-radius: 0px;
+  background: linear-gradient(315deg, #070707, #090909);
+  box-shadow:  -6px -6px 12px #040404,
+               6px 6px 12px #0c0c0c;
 }

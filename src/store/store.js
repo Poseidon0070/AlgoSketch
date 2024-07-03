@@ -1,13 +1,12 @@
 'use client'
 
 import {configureStore} from '@reduxjs/toolkit'
-import sortingSlice from './slices/sortingSlice';
+import {sortingReducer} from './slices/sortingSlice';
 
 const store = configureStore({
     reducer:{
-        sorting: sortingSlice.reducer
+        sorting: sortingReducer
     }
 })
 
 export default store;
-export const sortingAction = sortingSlice.actions 
