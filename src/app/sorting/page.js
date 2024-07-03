@@ -1,17 +1,24 @@
 'use client';
 
+import { SpeedController } from '@/components/speed-controler';
 import { resetArrayandAnimation } from '@/store/slices/sortingSlice'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { sortingAction } from '@/store/slices/sortingSlice';
+import { AlgorithmSelector } from '@/components/algorithm-controller';
+import { algorithmOptions } from "@/utils/utility";
 
 const sortingVisualizer = () => {
 
-    const array = useSelector(state => state.sorting.array)
+    const sorting = useSelector(state => state.sorting)
     const dispatch = useDispatch()
-    console.log("array=>", array)
+
+    useEffect(() => {
+        console.log("animationSpeed", sorting.animationSpeed)
+    }, [sorting.animationSpeed])
+
     useEffect(() => {
         dispatch(resetArrayandAnimation());
-        console.log("here----")
         window.addEventListener("resize", () => dispatch(resetArrayandAnimation()));
 
         return () => {
@@ -21,16 +28,24 @@ const sortingVisualizer = () => {
 
     return (
         <div>
-            <div className="relative h-[calc(100vh-66px)] w-full" id='content-container'>
-                <div className="absolute bottom-[32px] w-full mx-auto left-0 right-0 flex justify-center items-end">
-                    {array.map((value, index) => (
+            <div className="flex flex-col justify-center items-center w-full mt-20 mb-16" id='content-container'>
+                <div className="w-full mx-auto flex justify-center items-end">
+                    {sorting.array.map((value, index) => (
                         <div
                             key={index}
-                            className="relative mx-0.5 shadow-lg opacity-70 rounded-lg bg-purple-700"
+                            className="relative mx-0.5 shadow-lg opacity-70 rounded-lg bg-cyan-700"
                             style={{ height: `${value}px`, width: "2.5px" }}
                         ></div>
                     ))}
                 </div>
+            </div>
+            <div className='h-[50px] flex justify-center items-center gap-20'>
+                <SpeedController 
+                value={sorting.animationSpeed}
+                isDisabled={sorting.isSorting} 
+                handleChange={(e) => dispatch(sortingAction.setAnimationSpeed(e.target.value))}   
+                />
+                <AlgorithmSelector options={algorithmOptions} onChange={(e) => dispatch(sortingAction.setAlgorithm(e.target.value))}/>
             </div>
         </div>
     )

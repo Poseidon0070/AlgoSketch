@@ -18,16 +18,15 @@ const sortingSlice = createSlice({
     reducers: {
         setArray: (state, action) => {
             state.array = action.payload;
-            console.log("asdasdasd")
         },
-        setSelectedAlgorithm: (state, action) => {
+        setAlgorithm: (state, action) => {
             state.selectedAlgorithm = action.payload;
         },
         setIsSorting: (state, action) => {
             state.isSorting = action.payload;
         },
         setAnimationSpeed: (state, action) => {
-            state.isSorting = action.payload;
+            state.animationSpeed = action.payload;
         },
         setIsAnimationComplete: (state, action) => {
             state.isAnimationComplete = action.payload;
