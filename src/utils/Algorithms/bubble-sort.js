@@ -1,4 +1,4 @@
-export const generateBubbleSort = (algorithm, array) => {
+export const generateBubbleSort = (array) => {
     const animationArray = [];
     const clonedArray = array.slice();
 
