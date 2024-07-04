@@ -15,13 +15,16 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+html {
+  cursor: none;
+}
 
 body {
   color: rgb(var(--foreground-rgb));
   background-color: #0a0c0f;
   background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
   overflow: hidden;
-  cursor:none
+  cursor: none;
 }
 
 @layer utilities {
@@ -33,8 +36,17 @@ body {
 .main-header {
   border-radius: 0px;
   background: linear-gradient(315deg, #070707, #090909);
-  box-shadow:  -6px -6px 12px #040404,
-               6px 6px 12px #0c0c0c;
+  box-shadow: -6px -6px 12px #040404, 6px 6px 12px #0c0c0c;
 }
 
+button {
+  cursor: none;
+}
 
+.default-line-color {
+  background: #0e7490;
+}
+
+.change-line-color {
+  background: rgb(233, 12, 12);
+}

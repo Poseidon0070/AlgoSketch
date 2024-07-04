@@ -1,22 +1,31 @@
 'use client'
 import { algorithmOptions } from "@/utils/utility";
-import Link from "next/link";
 import React, { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 export const AlgorithmSelector = ({ options, algorithm = "bubble", onChange, isDisabled = false }) => {
     const [isOpen, setIsOpen] = useState(false);
+    
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
+
     const selectHandler = (value) => {
         onChange(value);
         setIsOpen(false)
     }
+
+    const algorithmLabel = algorithmOptions.reduce((acc, curr_algorithm) => {
+        if (curr_algorithm.value === algorithm) {
+            return curr_algorithm.label;
+        }
+        return acc;
+    }, '');
+
     return (
         <div className="relative inline-block text-left">
             <div>
                 <div
-                    className="appearance-none h-8 flex items-center w-48  bg-gray-800 border-cyan-900
+                    className="appearance-none h-8 flex items-center w-32  bg-gray-800 border-cyan-900
                     border px-4 py-1 rounded-lg shadow cursor-none leading-tight focus:outline-none focus:shadow-outline text-gray-300 select-none"
                     id="menu-button"
                     aria-expanded="true"
@@ -24,15 +33,15 @@ export const AlgorithmSelector = ({ options, algorithm = "bubble", onChange, isD
                     onClick={toggleDropdown}
                 >
                     <div className="flex justify-evenly w-full items-center">
-                        <p>{algorithm}</p>
+                        <p className={`${isDisabled ? 'text-red-600' : 'text-white'}`}>{algorithmLabel}</p>
                         <div className="w-full ml-auto"><IoIosArrowUp className="ml-auto" /></div>
                     </div>
                 </div>
             </div>
 
-            {isOpen && (
+            {isOpen && !isDisabled && (
                 <div
-                    className="origin-top-right absolute left-0 bottom-9 cursor-none mt-1 w-48 rounded-md shadow-lg bg-gray-800 border-cyan-900  ring-opacity-5 focus:outline-none"
+                    className="origin-top-right absolute left-0 bottom-9 cursor-none mt-1 w-32 rounded-md shadow-lg bg-gray-800 border-cyan-900  ring-opacity-5 focus:outline-none"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="menu-button"

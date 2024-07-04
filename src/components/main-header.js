@@ -1,15 +1,16 @@
 import React from 'react'
+import NavLink from './nav-link'
 
 const MainHeader = () => {
   return (
-    <div className='flex  h-[80px] justify-around items-center main-header'>
-        <div>
+    <div className='flex h-[80px] justify-around items-center main-header'>
+        <div className='text-[20px] font-semibold'>
             AlgoSketch
         </div>
         <div>
             <ul className='flex gap-20'> 
-                <li>Sorting</li>
-                <li>Path-Finder</li>
+                <NavLink href={'/sorting'}>Sorting</NavLink>
+                <NavLink href={'/path-finder'}>Path-Finder</NavLink>
             </ul>
         </div>
       
