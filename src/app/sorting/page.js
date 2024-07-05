@@ -1,12 +1,12 @@
 'use client';
 
 import { SpeedController } from '@/components/speed-controler';
-import { resetArrayandAnimation, runAnimation } from '@/store/slices/sortingSlice'
+import { resetArrayandAnimation, runAnimation } from '@/store/slices/sorting-slice'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { sortingAction } from '@/store/slices/sortingSlice';
+import { sortingAction } from '@/store/slices/sorting-slice';
 import { AlgorithmSelector } from '@/components/algorithm-controller';
-import { algorithmOptions, generateAnimationArray } from "@/utils/utility";
+import { algorithmOptions, generateAnimationArray } from "@/utils/sorting-utility";
 
 const sortingVisualizer = () => {
 
@@ -24,7 +24,9 @@ const sortingVisualizer = () => {
     const handleStart = () => {
         dispatch(sortingAction.setIsSorting(true))
         const animationArray = generateAnimationArray(sorting.selectedAlgorithm, sorting.array)
-        dispatch(runAnimation(sorting.animationSpeed,animationArray))
+        let array = [...sorting.array]
+        let sortedArray = array.sort((a,b) => a-b)
+        dispatch(runAnimation(sorting.animationSpeed,animationArray,sortedArray))
     }
 
     return (

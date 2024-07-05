@@ -1,5 +1,5 @@
 'use client'
-import { algorithmOptions } from "@/utils/utility";
+import { algorithmOptions } from "@/utils/sorting-utility";
 import React, { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 export const AlgorithmSelector = ({ options, algorithm = "bubble", onChange, isDisabled = false }) => {

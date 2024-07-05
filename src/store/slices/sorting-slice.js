@@ -1,6 +1,6 @@
 'use client'
 
-import { generateRandomNumberFromInterval } from "@/utils/utility";
+import { generateRandomNumberFromInterval } from "@/utils/sorting-utility";
 
 const { createSlice } = require("@reduxjs/toolkit");
 
@@ -68,7 +68,7 @@ export const resetArrayandAnimation = () => {
     }
 }
 
-export const runAnimation = (animationSpeed, animationArray) => {
+export const runAnimation = (animationSpeed, animationArray,sortedArray) => {
     return (dispatch) => {
 
         const time = (1 / animationSpeed) * 200;
@@ -104,6 +104,7 @@ export const runAnimation = (animationSpeed, animationArray) => {
 
         setTimeout(() => {
             dispatch(sortingAction.setIsSorting(false))
+            dispatch(sortingAction.setArray(sortedArray))
         }, totalDuration);
     }
 }
