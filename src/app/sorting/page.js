@@ -1,11 +1,11 @@
 'use client';
 
-import { SpeedController } from '@/components/speed-controler';
+import { SpeedController } from '@/components/sorting/speed-controler';
 import { resetArrayandAnimation, runAnimation } from '@/store/slices/sorting-slice'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { sortingAction } from '@/store/slices/sorting-slice';
-import { AlgorithmSelector } from '@/components/algorithm-controller';
+import { AlgorithmSelector } from '@/components/sorting/algorithm-controller';
 import { algorithmOptions, generateAnimationArray } from "@/utils/sorting-utility";
 
 const sortingVisualizer = () => {
