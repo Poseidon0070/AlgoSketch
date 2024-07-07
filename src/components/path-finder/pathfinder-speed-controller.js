@@ -1,4 +1,4 @@
-export const SpeedController = ({ min = 20, max = 800, step = 1, value, handleChange, isDisabled = false }) => {
+export const PathfinderSpeedController = ({ min = 0.5, max = 4, step = 0.5, value, handleChange, isDisabled = false }) => {
     return (
         <div className="flex gap-2 items-center justify-center">
             <span className="text-center text-gray-300">Slow</span>

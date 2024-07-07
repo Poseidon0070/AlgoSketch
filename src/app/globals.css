@@ -24,7 +24,7 @@ html {
 body {
   color: rgb(var(--foreground-rgb));
   background-color: #0a0c0f;
-  background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+  background-image: url("/bg.png");
   overflow: hidden;
   cursor: none;
 }

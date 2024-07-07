@@ -1,11 +1,11 @@
 'use client';
 
-import { SpeedController } from '@/components/sorting/speed-controler';
+import { SortingSpeedController  } from '@/components/sorting/sorting-speed-controler';
 import { resetArrayandAnimation, runAnimation } from '@/store/slices/sorting-slice'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { sortingAction } from '@/store/slices/sorting-slice';
-import { AlgorithmSelector } from '@/components/sorting/algorithm-controller';
+import { SortingAlgorithmSelector } from '@/components/sorting/sorting-algorithm-selector';
 import { algorithmOptions, generateAnimationArray } from "@/utils/sorting-utility";
 
 const sortingVisualizer = () => {
@@ -42,16 +42,16 @@ const sortingVisualizer = () => {
                     ))}
                 </div>
             </div>
-            <div className='absolute bottom-12 flex justify-center items-center w-full'>
-                <div className='flex justify-center items-center gap-10'>
-                    <SpeedController
+            <div className='absolute bottom-5 sm:bottom-12 flex justify-center items-center w-full'>
+                <div className='flex justify-center gap-x-5 md:gap-x-12 gap-y-4 items-center flex-wrap w-full'>
+                    <SortingSpeedController 
                         value={sorting.animationSpeed}
                         isDisabled={sorting.isSorting}
                         handleChange={(e) => dispatch(sortingAction.setAnimationSpeed(e.target.value))}
                     />
-                    <AlgorithmSelector options={algorithmOptions} algorithm={sorting.selectedAlgorithm} isDisabled={sorting.isSorting} onChange={(value) => dispatch(sortingAction.setAlgorithm(value))} />
+                    <SortingAlgorithmSelector options={algorithmOptions} algorithm={sorting.selectedAlgorithm} isDisabled={sorting.isSorting} onChange={(value) => dispatch(sortingAction.setAlgorithm(value))} />
                     <button onClick={() => dispatch(resetArrayandAnimation())} className={`${false ? 'text-red-600' :'bg-gray-800'} appearance-none h-8 flex items-center w-30  bg-gray-800 border-cyan-900
-border px-4 py-1 rounded-lg shadow cursor-none leading-tight focus:outline-none focus:shadow-outline text-gray-300 select-none `}>
+                    border px-4 py-1 rounded-lg shadow cursor-none leading-tight focus:outline-none focus:shadow-outline text-gray-300 select-none `}>
                         Reset
                     </button>
                     <button onClick={handleStart} disabled={sorting.isSorting} className='appearance-none h-8 flex items-center w-30  bg-gray-800 border-cyan-900
