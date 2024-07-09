@@ -1,4 +1,6 @@
-import { TILE_STYLE } from "@/components/path-finder/node"
+import { BFS } from "./pathfinder-algorithms/breadth-first-search"
+import { DFS } from "./pathfinder-algorithms/depth-first-search"
+import { DIJKSTRA } from "./pathfinder-algorithms/dijkstra"
 
 
 class Node {
@@ -45,6 +47,16 @@ export const getRandInt = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+export const generatePath = (grid, startNode, endNode, algorithm) => {
+    if(algorithm === 'bfs'){
+        return BFS(grid, startNode, endNode)
+    }else if(algorithm === 'dfs'){
+        return DFS(grid, startNode, endNode)
+    }else if(algorithm === 'dijkstra'){
+        return DIJKSTRA(grid, startNode, endNode)
+    }
+}
+
 export const checkIfStartOrEnd = (row, col) => {
     return (
         (row === 0 && col === 0) || (row === MAX_ROWS - 1 && col === MAX_COLS - 1)
@@ -55,7 +67,12 @@ export const isEqual = (a, b) => {
     return a.row === b.row && a.col === b.col;
 }
 
-export const isRowColEqual = (row, col, tile) => {
-    return row === tile.row && col === tile.col
+export const isRowColEqual = (row, col, node) => {
+    return row === node.row && col === node.col
 }
 
+export const pathFinderAlgorithms = [
+    { label: "Bfs", value: "bfs" },
+    { label: "Dfs", value: "dfs" },
+    { label: "Dijkstra", value: "dijkstra" },
+];

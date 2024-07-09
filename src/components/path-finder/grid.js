@@ -1,21 +1,17 @@
 'use client'
-// import { usePathfinding } from "../hooks/usePathfinding";
 import { MAX_ROWS, MAX_COLS, createNewGrid, checkIfStartOrEnd } from "@/utils/pathfinder-utility"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Node from "./node";
 import { pathFinderActions } from "@/store/slices/pathfinder-slice";
-// import { node } from "./node";
-// import { MutableRefObject, useState } from "react";
-// import { checkIfStartOrEnd, createNewGrid } from "../utils/helpers";
 
-export function Grid({ isVisualizationRunningRef }) {
-    const { grid } = useSelector(state => state.pathFinder)
+export function Grid() {
+    const { grid, isVisualizationRunning } = useSelector(state => state.pathFinder)
     const dispatch = useDispatch()
     const [isMouseDown, setIsMouseDown] = useState(false);
 
     const handleMouseDown = (row, col) => {
-        if (isVisualizationRunningRef.current || checkIfStartOrEnd(row, col)) {
+        if (isVisualizationRunning || checkIfStartOrEnd(row, col)) {
             return;
         }
         setIsMouseDown(true);
@@ -23,14 +19,14 @@ export function Grid({ isVisualizationRunningRef }) {
     };
 
     const handleMouseUp = (row, col) => {
-        if (isVisualizationRunningRef.current || checkIfStartOrEnd(row, col)) {
+        if (isVisualizationRunning || checkIfStartOrEnd(row, col)) {
             return;
         }
         setIsMouseDown(false);
     };
 
     const handleMouseEnter = (row, col) => {
-        if (isVisualizationRunningRef.current || checkIfStartOrEnd(row, col)) {
+        if (isVisualizationRunning || checkIfStartOrEnd(row, col)) {
             return;
         }
         if (isMouseDown) {
@@ -42,7 +38,7 @@ export function Grid({ isVisualizationRunningRef }) {
         <div
             className={
                 `flex items-center flex-col border-sky-300 mt-10
-                lg:min-h-[${MAX_ROWS * 17}px]  md:min-h-[${MAX_ROWS * 15}px] 
+                lg:min-h-[${MAX_ROWS * 17}px]  md:min-h-[${MAX_ROWS * 17}px] 
                 xs:min-h-[${MAX_ROWS * 8}px] min-h-[${MAX_ROWS * 7}px]
                 lg:w-[${MAX_COLS * 17}px] md:w-[${MAX_COLS * 15}px] 
                 xs:w-[${MAX_COLS * 8}px] w-[${MAX_COLS * 7}px]`

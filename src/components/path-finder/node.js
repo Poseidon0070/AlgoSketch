@@ -1,15 +1,18 @@
-import { MAX_ROWS } from "@/utils/pathfinder-utility";
-
-export const TILE_STYLE = "lg:w-[17px] md:w-[15px] xs:w-[8px] w-[7px] lg:h-[17px] md:h-[15px] xs:h-[8px] h-[7px] border-t border-r border-sky-200";
+import { MAX_ROWS, isRowColEqual } from "@/utils/pathfinder-utility";
+import React from "react";
+export const TILE_STYLE = "lg:w-[17.5px] md:w-[10px] xs:w-[3px] w-[5px] lg:h-[17px] md:h-[13px] xs:h-[8px] h-[9px] border-t border-r border-sky-200";
 export const TRAVERSED_TILE_STYLE = TILE_STYLE + " bg-cyan-500";
 export const START_TILE_STYLE = TILE_STYLE + " bg-purple-600";
-export const END_TILE_STYLE = TILE_STYLE + " bg-green-600";
-// export const END_TILE_STYLE = TILE_STYLE + " bg-red-600";
-export const WALL_TILE_STYLE = TILE_STYLE + " bg-gray-200";
+// export const END_TILE_STYLE = TILE_STYLE + " bg-green-600";
+export const END_TILE_STYLE = TILE_STYLE + " bg-red-600";
+export const WALL_TILE_STYLE = TILE_STYLE + " bg-[#FBF8DD]";
 export const PATH_TILE_STYLE = TILE_STYLE + " bg-green-600";
+import { FaFlag } from "react-icons/fa";
+import { GiFinishLine } from "react-icons/gi";
+import { useSelector } from "react-redux";
 
-const Node = ({ row, col, isStart, isEnd, isTraversed, isWall, isPath, handleMouseDown, handleMouseUp, handleMouseEnter }) => {
-
+const Node = React.memo(({ row, col, isStart, isEnd, isTraversed, isWall, isPath, handleMouseDown, handleMouseUp, handleMouseEnter }) => {
+  const {startNode, endNode} = useSelector(state => state.pathFinder)
   let nodeStyle;
 
   if (isStart) {
@@ -37,8 +40,11 @@ const Node = ({ row, col, isStart, isEnd, isTraversed, isWall, isPath, handleMou
       onMouseUp={() => handleMouseUp(row, col)}
       onMouseDown={() => handleMouseDown(row, col)}
       onMouseEnter={() => handleMouseEnter(row, col)}
-    />
+    >
+      {isRowColEqual(row, col, startNode) && <FaFlag className="relative bottom-7 left-[3px] animate-bounce" style={{ color: 'yellow', fontSize: '36px' }}></FaFlag>}
+      {isRowColEqual(row, col, endNode) && <FaFlag className="relative bottom-7 left-[3px] animate-bounce" style={{ color: 'lightgreen', fontSize: '36px' }}></FaFlag>}
+    </div>
   );
-};
+});
 
 export default Node

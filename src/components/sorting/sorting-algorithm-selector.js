@@ -54,8 +54,8 @@ export const SortingAlgorithmSelector = ({ options, algorithm = "bubble", onChan
                                     className="block px-4 py-1 text-sm cursor-none"
                                     role="menuitem"
                                     key={index}
-                                    value={option.value} // Ensure each option has a value
-                                    onClick={() => selectHandler(option.value)} // Pass the option's value to selectHandler
+                                    value={option.value} 
+                                    onClick={() => selectHandler(option.value)} 
                                 >
                                     {option.label}
                                 </li>

@@ -12,6 +12,7 @@ const MainHeader = () => {
             <ul className='flex gap-20'> 
                 <NavLink href={'/sorting'}>Sorting</NavLink>
                 <NavLink href={'/path-finder'}>Path-Finder</NavLink>
+                <NavLink href={'/seive'}>Seive</NavLink>
             </ul>
         </div>
       

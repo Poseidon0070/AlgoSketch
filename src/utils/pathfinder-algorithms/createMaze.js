@@ -3,7 +3,7 @@ import { MAX_ROWS, MAX_COLS, isRowColEqual, delay } from "../pathfinder-utility"
 import { TILE_STYLE, WALL_TILE_STYLE } from "@/components/path-finder/node";
 
 
-export const createMazeWithWalls = (grid, startTile, endTile, setIsDisabled, speed) => {
+export const createMazeWithWalls = (grid, startTile, endTile, setIsDisabled, speed, change) => {
     return new Promise((resolve) => {
         const gap = 1 / speed;
         let completedRows = 0;
@@ -14,7 +14,7 @@ export const createMazeWithWalls = (grid, startTile, endTile, setIsDisabled, spe
                     if (row % 2 === 0 || col % 2 === 0) {
                         if (!isRowColEqual(row, col, startTile) && !isRowColEqual(row, col, endTile)) {
                             setTimeout(() => {
-                                document.getElementById(`${row}-${col}`).className = `${WALL_TILE_STYLE} animate-wall`;
+                                document.getElementById(`${row}-${col}`).className = `${WALL_TILE_STYLE}`;
                             }, gap * col);
                         }
                     }

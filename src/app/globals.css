@@ -15,6 +15,26 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.one {
+  background-color: grey;
+}
+
+.currentCell {
+  background-color: blue;
+}
+
+.notPrime {
+  background-color: orange;
+}
+
+.prime {
+  background-color: rgb(21, 170, 189);
+}
+
+.multiple {
+  background-color: rgb(21, 133, 114);
+}
+
 
 html {
   cursor: none;
@@ -25,7 +45,8 @@ body {
   color: rgb(var(--foreground-rgb));
   background-color: #0a0c0f;
   background-image: url("/bg.png");
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
   cursor: none;
 }
 
@@ -46,6 +67,7 @@ button {
 }
 
 .default-line-color {
+  /* background: #10abbc; */
   background: #0e7490;
 }
 
@@ -53,3 +75,4 @@ button {
   /* background: rgb(233, 12, 12); */
   background: rgb(209, 255, 5);
 }
+

@@ -1,8 +1,8 @@
 'use client'
-import { algorithmOptions } from "@/utils/sorting-utility";
+import { pathFinderAlgorithms } from "@/utils/pathfinder-utility";
 import React, { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-export const PathfinderAlgorithmSelector = ({ options, algorithm = "bubble", onChange, isDisabled = false }) => {
+export const PathfinderAlgorithmSelector = ({ options, algorithm = "dijstra", onChange, isDisabled = false }) => {
     const [isOpen, setIsOpen] = useState(false);
     
     const toggleDropdown = () => {
@@ -14,7 +14,7 @@ export const PathfinderAlgorithmSelector = ({ options, algorithm = "bubble", onC
         setIsOpen(false)
     }
 
-    const algorithmLabel = algorithmOptions.reduce((acc, curr_algorithm) => {
+    const algorithmLabel = pathFinderAlgorithms.reduce((acc, curr_algorithm) => {
         if (curr_algorithm.value === algorithm) {
             return curr_algorithm.label;
         }
@@ -54,8 +54,8 @@ export const PathfinderAlgorithmSelector = ({ options, algorithm = "bubble", onC
                                     className="block px-4 py-1 text-sm cursor-none"
                                     role="menuitem"
                                     key={index}
-                                    value={option.value} // Ensure each option has a value
-                                    onClick={() => selectHandler(option.value)} // Pass the option's value to selectHandler
+                                    value={option.value} 
+                                    onClick={() => selectHandler(option.value)}
                                 >
                                     {option.label}
                                 </li>
