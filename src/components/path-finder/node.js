@@ -1,6 +1,6 @@
 import { MAX_ROWS, isRowColEqual } from "@/utils/pathfinder-utility";
 import React from "react";
-export const TILE_STYLE = "lg:w-[17.5px] md:w-[10px] xs:w-[3px] w-[5px] lg:h-[17px] md:h-[13px] xs:h-[8px] h-[9px] border-t border-r border-sky-200";
+export const TILE_STYLE = "lg:w-[17.5px] md:w-[10px] xs:w-[3px] w-[5px] lg:h-[17px] md:h-[13px] xs:h-[8px] h-[9px] border-t border-r border-cyan-600";
 export const TRAVERSED_TILE_STYLE = TILE_STYLE + " bg-cyan-500";
 export const START_TILE_STYLE = TILE_STYLE + " bg-purple-600";
 // export const END_TILE_STYLE = TILE_STYLE + " bg-green-600";
@@ -11,7 +11,7 @@ import { FaFlag } from "react-icons/fa";
 import { GiFinishLine } from "react-icons/gi";
 import { useSelector } from "react-redux";
 
-const Node = React.memo(({ row, col, isStart, isEnd, isTraversed, isWall, isPath, handleMouseDown, handleMouseUp, handleMouseEnter }) => {
+const Node = ({ row, col, isStart, isEnd, isTraversed, isWall, isPath, handleMouseDown, handleMouseUp, handleMouseEnter }) => {
   const {startNode, endNode} = useSelector(state => state.pathFinder)
   let nodeStyle;
 
@@ -45,6 +45,6 @@ const Node = React.memo(({ row, col, isStart, isEnd, isTraversed, isWall, isPath
       {isRowColEqual(row, col, endNode) && <FaFlag className="relative bottom-7 left-[3px] animate-bounce" style={{ color: 'lightgreen', fontSize: '36px' }}></FaFlag>}
     </div>
   );
-});
+};
 
 export default Node

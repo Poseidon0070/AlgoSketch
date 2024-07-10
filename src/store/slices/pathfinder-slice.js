@@ -142,7 +142,7 @@ export const runPathAnimation = (path, traversedNode, traversalSpeed, startNode,
                     setTimeout(() => {
                         const node = traversedNode[i];
                         if (!isEqual(node, startNode) && !isEqual(node, endNode)) {
-                            document.getElementById(`${node.row}-${node.col}`).className = `${TRAVERSED_TILE_STYLE} animate-pulse`;
+                            document.getElementById(`${node.row}-${node.col}`).className = `${TRAVERSED_TILE_STYLE}`;
                         }
                         if (i === traversedNode.length - 1) {
                             resolve();

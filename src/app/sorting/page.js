@@ -8,7 +8,7 @@ import { sortingAction } from '@/store/slices/sorting-slice';
 import { SortingAlgorithmSelector } from '@/components/sorting/sorting-algorithm-selector';
 import { algorithmOptions, generateAnimationArray } from "@/utils/sorting-utility";
 
-const sortingVisualizer = React.memo(() => {
+const SortingVisualizerComponent = () => {
 
     const sorting = useSelector(state => state.sorting)
     const dispatch = useDispatch()
@@ -20,7 +20,7 @@ const sortingVisualizer = React.memo(() => {
         return () => {
             window.removeEventListener("resize", () => dispatch(resetArrayandAnimation()));
         };
-    }, []);
+    }, [dispatch]);
 
     const handleStart = () => {
         dispatch(sortingAction.setIsSorting(true))
@@ -63,6 +63,8 @@ const sortingVisualizer = React.memo(() => {
             </div>
         </div>
     )
-})
+}
+
+const sortingVisualizer = React.memo(SortingVisualizerComponent);
 
 export default sortingVisualizer
