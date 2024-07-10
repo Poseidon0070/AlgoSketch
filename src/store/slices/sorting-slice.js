@@ -7,7 +7,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 const sortingSlice = createSlice({
     initialState: {
         array: [],
-        selectedAlgorithm: "merge",
+        selectedAlgorithm: "bubble",
         isSorting: false,
         animationSpeed: 300,
         isAnimationComplete: true,
@@ -23,7 +23,9 @@ const sortingSlice = createSlice({
             state.selectedAlgorithm = action.payload
         },
         setIsSorting: (state, action) => {
+            console.log("here", action.payload)
             state.isSorting = action.payload
+            console.log(state.isSorting)
         },
         setAnimationSpeed: (state, action) => {
             state.animationSpeed = action.payload
