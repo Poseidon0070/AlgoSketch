@@ -1,6 +1,7 @@
-import { generateBubbleSort } from "./Algorithms/bubble-sort";
-import { generateMergeSort } from "./Algorithms/merge-sort";
-import { generateSelectionSort } from "./Algorithms/selection-sort";
+import { generateBubbleSort } from "./sorting-algorithms/bubble-sort";
+import { generateMergeSort } from "./sorting-algorithms/merge-sort";
+import { generateQuickSort } from "./sorting-algorithms/quick-sort";
+import { generateSelectionSort } from "./sorting-algorithms/selection-sort";
 
 export function generateRandomNumberFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -13,8 +14,9 @@ export const generateAnimationArray = (algorithm, array) => {
     }else if(algorithm === 'selection'){
         animationArray = generateSelectionSort(array)
     }else if(algorithm === 'merge'){
-        console.log(algorithm)
         animationArray = generateMergeSort(array)
+    }else if(algorithm === 'quick'){
+        animationArray = generateQuickSort(array)
     }
     return animationArray;
 }
@@ -24,6 +26,5 @@ export const algorithmOptions = [
     { label: "Bubble", value: "bubble" },
     { label: "Selection", value: "selection" },
     { label: "Quick", value: "quick" },
-    { label: "Insertion", value: "insertion" },
 ];
 

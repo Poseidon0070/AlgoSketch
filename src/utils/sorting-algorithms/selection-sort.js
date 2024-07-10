@@ -5,7 +5,7 @@ export const generateSelectionSort = (array) => {
     for (let i = 0; i < clonedArray.length - 1; i++) {
         let minIndex = i;
         for (let j = i + 1; j < clonedArray.length; j++) {
-            animationArray.push([[j, i], false]);
+            animationArray.push([[j, minIndex], false]);
             if (clonedArray[j] < clonedArray[minIndex]) {
                 minIndex = j;
             }

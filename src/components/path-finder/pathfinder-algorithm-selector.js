@@ -1,8 +1,8 @@
 'use client'
-import { algorithmOptions } from "@/utils/utility";
+import { pathFinderAlgorithms } from "@/utils/pathfinder-utility";
 import React, { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-export const AlgorithmSelector = ({ options, algorithm = "bubble", onChange, isDisabled = false }) => {
+export const PathfinderAlgorithmSelector = ({ options, algorithm = "dijstra", onChange, isDisabled = false }) => {
     const [isOpen, setIsOpen] = useState(false);
     
     const toggleDropdown = () => {
@@ -14,7 +14,7 @@ export const AlgorithmSelector = ({ options, algorithm = "bubble", onChange, isD
         setIsOpen(false)
     }
 
-    const algorithmLabel = algorithmOptions.reduce((acc, curr_algorithm) => {
+    const algorithmLabel = pathFinderAlgorithms.reduce((acc, curr_algorithm) => {
         if (curr_algorithm.value === algorithm) {
             return curr_algorithm.label;
         }
@@ -54,8 +54,8 @@ export const AlgorithmSelector = ({ options, algorithm = "bubble", onChange, isD
                                     className="block px-4 py-1 text-sm cursor-none"
                                     role="menuitem"
                                     key={index}
-                                    value={option.value} // Ensure each option has a value
-                                    onClick={() => selectHandler(option.value)} // Pass the option's value to selectHandler
+                                    value={option.value} 
+                                    onClick={() => selectHandler(option.value)}
                                 >
                                     {option.label}
                                 </li>
@@ -68,27 +68,3 @@ export const AlgorithmSelector = ({ options, algorithm = "bubble", onChange, isD
         </div>
     );
 };
-
-// import React from "react";
-// import { IoIosArrowUp } from "react-icons/io";
-
-// export const AlgorithmSelector = ({options,defaultValue,onChange,isDisabled = false}) => {
-//   return (
-//     <div className="flex items-center relative w-48 ">
-//       <select
-//         disabled={isDisabled}
-//         onChange={onChange}
-//         defaultValue={defaultValue}
-//         className="block appearance-none h-8 w-full bg-gray-800 border-cyan-900
-//         border px-4 py-1 pr-8 rounded-lg shadow cursor-none leading-tight focus:outline-none focus:shadow-outline text-gray-300"
-//       >
-//         {options.map((option) => (
-//           <option key={option.value} value={option.value}>
-//             {option.label}
-//           </option>
-//         ))}
-//       </select>
-//         <IoIosArrowUp className="relative right-6"/>
-//     </div>
-//   );
-// };
