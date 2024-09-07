@@ -27,7 +27,7 @@ const CustomCursor = () => {
       style={{
         top: position.y,
         left: position.x,
-        width: '30px', // Adjust the size of your SVG cursor
+        width: '30px', 
         height: '30px',
         backgroundImage: "url('/cursor.svg')",
         backgroundSize: 'contain',

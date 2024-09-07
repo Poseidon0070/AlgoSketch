@@ -27,4 +27,3 @@ export const algorithmOptions = [
     { label: "Selection", value: "selection" },
     { label: "Quick", value: "quick" },
 ];
-
