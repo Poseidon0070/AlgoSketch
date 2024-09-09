@@ -43,8 +43,12 @@ git clone https://github.com/Poseidon0070/AlgoSketch
 - cd AlgoSketch
 - npm install
 
-## Start the development server
+## Start development server
 - npm run dev
+
+## Start production server
+- npm run build
+- npm start
   
 ### Using Docker
 ```sh
