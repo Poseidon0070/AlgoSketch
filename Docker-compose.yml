@@ -6,7 +6,4 @@ services:
     container_name: algosketch
     ports:
       - "3000:3000"
-    volumes:
-      - ./src:/app/src
-      - /app/node_modules
     restart: always
