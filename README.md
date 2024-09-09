@@ -8,7 +8,6 @@ AlgoSketch is an algorithm visualizer application built using Next.js. This proj
 - **Styling**: Tailwind CSS
 - State Management: Redux
 
-
 ## Features
 
 ### Sorting Algorithms
@@ -46,3 +45,14 @@ git clone https://github.com/Poseidon0070/AlgoSketch
 
 ## Start the development server
 - npm run dev
+  
+### Using Docker
+```sh
+git clone https://github.com/Poseidon0070/AlgoSketch
+```
+
+## Navigate to the project directory
+- cd AlgoSketch
+
+## Build and start the Docker container using Docker Compose
+- docker compose up --build
