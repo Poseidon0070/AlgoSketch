@@ -27,10 +27,11 @@ AlgoSketch is an algorithm visualizer application built using Next.js. This proj
 
 - **Sieve of Eratosthenes**: Visualizes the ancient algorithm to find all primes up to a given limit.
 
-## Repository Structure
+## Live
 
-- **public/**: Contains static assets.
-- **src/**: Contains the main application code.
+- Netlify : https://algosketch.netlify.app
+- Render : https://algosketch.onrender.com
+- Docker Hub : https://hub.docker.com/r/shikhar7585/algosketch
 
 ## Installation
 
